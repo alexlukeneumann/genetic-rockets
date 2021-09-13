@@ -9,6 +9,19 @@ This web application was written using:
 
 ## Demo
 
+## How To
+To run the repository locally, run the following command (using http-server npm packaged installed globally):
+
+ - npm run serve
+
+To compile any local changes to the repository, run the following command:
+
+ - npm run build
+
+Or use the watcher to listen out for changes and automatically compile them:
+
+ - npm run watch
+
 ## Rocket Model
 Each rocket is modelled using a simple force diagram:
 
