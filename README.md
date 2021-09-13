@@ -8,6 +8,7 @@ This web application was written using:
  - Three.js
 
 ## Demo
+A demo is available at: https://alexlukeneumann.github.io/genetic-rockets/public.
 
 ## How To
 To run the repository locally, run the following command (using http-server npm packaged installed globally):
