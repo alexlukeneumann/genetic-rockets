@@ -15,7 +15,7 @@ Each rocket is modelled using a simple force diagram:
 ![A diagram depicting the forces acting upon the rocket.](https://github.com/alexlukeneumann/genetic-rockets/blob/main/docs/force-diagram.PNG)
 
 The upward thrust of the rocket is depicted by the well known, simplified, rocket thrust equation:
-<center><img src="https://latex.codecogs.com/svg.latex?T&space;=&space;v&space;*&space;\frac{dm}{dt}" title="T = v * \frac{dm}{dt}" /></center>
+![Thrust equation acting upon the rocket.](https://github.com/alexlukeneumann/genetic-rockets/blob/main/docs/thrust-equation.PNG)
 where T is the thrust of the rocket, v is the particle exhaust velocity and dm/dt represents the mass flow rate of the rocket.
 
 The directional force on the rocket (along the x-axis) can be applied in either direction. This force is modelled as a simple instaneous force applied to the rocket with a 'wind-resistive' like force applied to the rocket along the x-axis to constrain the x-axis movement.
