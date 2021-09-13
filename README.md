@@ -12,7 +12,7 @@ This web application was written using:
 ## Rocket Model
 Each rocket is modelled using a simple force diagram:
 
-![A diagram depicting the forces acting upon the rocket.](google.com)
+![A diagram depicting the forces acting upon the rocket.](https://github.com/alexlukeneumann/genetic-rockets/blob/main/docs/force-diagram.PNG)
 
 The upward thrust of the rocket is depicted by the well known, simplified, rocket thrust equation:
 <center><img src="https://latex.codecogs.com/svg.latex?T&space;=&space;v&space;*&space;\frac{dm}{dt}" title="T = v * \frac{dm}{dt}" /></center>
