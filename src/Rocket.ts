@@ -30,7 +30,7 @@ class Rocket {
     this.CurrentMass = this.InitialMass;
     this.PreviousMass = this.CurrentMass;
     this.InitialPos = initialPos;
-    this.ExhaustVelocity = new Vector3(0, 50.0, 0);
+    this.ExhaustVelocity = new Vector3(0, 25.0, 0);
     this.FlightTime = 0;
     this.NetForce = new Vector3(0, 0, 0);
     this.FrameCount = 0;
@@ -67,6 +67,7 @@ class Rocket {
     // Apply gravity
     const gravitationalForce = this.Gravity.clone();
     gravitationalForce.multiplyScalar(this.CurrentMass);
+    gravitationalForce.multiplyScalar(dt);
     this.NetForce.add(gravitationalForce);
 
     // Create an upward force
