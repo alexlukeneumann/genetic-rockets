@@ -1,5 +1,5 @@
 # Genetic Rockets
-Genetic Rockets is a simple demonstration which applies the theory of genetic algorithms; solving a problem through the process of natural selection. This repository contains a web application that models a simple rocket whose it is to reach the circular target which is blocked by a wall. 
+Genetic Rockets is a simple demonstration which applies the theory of genetic algorithms; solving a problem through the process of natural selection. This repository contains a web application that models a simple rocket whose goal it is, is to reach the circular target which is blocked by a wall. 
 
 This web application was written using:
 
