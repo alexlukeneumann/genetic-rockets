@@ -76,7 +76,7 @@ class RocketDNA {
 
    private static createRandomDirectionalThrust(dt: number): Vector3 {
     const sign = Math.sign(Math.random() - 0.5);
-    const scalingFactor = 500000 * dt;
+    const scalingFactor = 250000 * dt;
 
     return new Vector3(sign * scalingFactor * Math.random(), 0, 0);
    }

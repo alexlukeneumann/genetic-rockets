@@ -8,7 +8,7 @@ import Wall from "./Wall";
 const numRockets: number = 100;
 
 // The number of frames allocated for each generation to live
-const lifeTime: number = 550;
+const lifeTime: number = 400;
 
 // Generic rocket properties
 const rocketInitialPos: Vector3 = new Vector3(0.0, -44.0, 0.0);
@@ -23,7 +23,7 @@ const targetPosition: Vector3 = new Vector3((Math.random() - 0.5) * 50.0, 35.0, 
 const targetScale: Vector3 = new Vector3(2.0, 2.0, 1.0);
 
 // The target frame rate
-const targetFrameRate: number = 1.0 / 144.0;
+const targetFrameRate: number = 1.0 / 90.0;
 
 class Application {
   private _scene: THREE.Scene = new Scene();
@@ -126,7 +126,7 @@ class Application {
     }
 
     // Calculate the fitness of each rocket (lower the score the better!)
-    const maxDist = 100;
+    const maxDist = 200;
     const minDist = 0;
 
     for (let i = 0; i < numRockets; ++i) {
