@@ -19,6 +19,7 @@ class Rocket {
   FrameCount: number;
   IsFrozen: boolean;
   ReachedTarget: boolean;
+  DistanceToTarget: number;
 
   constructor(dna: RocketDNA, initialPos: Vector3, initialMass: number) {
     this.Mesh = new Mesh(geometry, material);
@@ -36,6 +37,7 @@ class Rocket {
     this.FrameCount = 0;
     this.IsFrozen = false;
     this.ReachedTarget = false;
+    this.DistanceToTarget = 999999;
 
     this.reset();
   }
@@ -50,6 +52,7 @@ class Rocket {
     this.FrameCount = 0;
     this.IsFrozen = false;
     this.ReachedTarget = false;
+    this.DistanceToTarget = 999999;
   }
 
   step(dt: number): boolean {

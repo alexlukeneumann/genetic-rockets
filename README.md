@@ -41,10 +41,13 @@ Each rocket is setup up with a some 'DNA' which is represented by the RocketDNA 
 
 On the initial seed of the simulation, each rocket has its DNA randomly generated which will contain the directional information of the rocket for the lifetime of a generation. The simulation is then random for the number of specified frames.
 
+Per frame:
+
+ - The rocket's distance to the target is calculated and the best result is stored over the course of the lifetime.
+
 At the end of the generation lifetime, the following occurs:
 
- - Calculate the distance each rocket is to the destination target. (Note: This could be done per frame instead of at the end of the generation lifetime)
- - Normalize each one of these distances against a defined linear scale. This defines the 'fitness' of the rocket.
+ - Normalize each rocket's best distance to the target against a defined linear scale. This defines the 'fitness' of the rocket.
  - All rockets are sorted against their fitness values.
  - Rockets with a better fitness value are then 'mated' with the weakest rockets. For each rocket pair: the weaker rocket's DNA has a chance to take parts of the fitter rocket's DNA, where the greater the fitness difference, the higher the chance that more of the fitter rocket's DNA is merged into the weaker rocket's DNA.
  - The fitness rockets DNA remains mostly unaltered but may mutate slightly. A mutation is where a random directional gene is completely replaced with a new random directional gene. As a rocket gets closer to the target, the chance for mutation decreases to a base value.

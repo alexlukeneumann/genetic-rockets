@@ -69,10 +69,27 @@ class Application {
 
     this.reset(targetFrameRate);
 
+    // Setup HTML controls
     const runBtn = document.getElementById("run-btn");
     if (runBtn != null) {
       runBtn.onclick = (e: MouseEvent) => {
         this._runSimulation = true;
+      }
+    }
+
+    const zoomInBtn = document.getElementById("zoom-in-btn");
+    if (zoomInBtn != null) {
+      zoomInBtn.onclick = (e: MouseEvent) => {
+        if (this._camera.position.z > 0.0) {
+          this._camera.position.z -= 5.0;
+        }
+      }
+    }
+
+    const zoomOutBtn = document.getElementById("zoom-out-btn");
+    if (zoomOutBtn != null) {
+      zoomOutBtn.onclick = (e: MouseEvent) => {
+        this._camera.position.z += 5.0;
       }
     }
 
@@ -110,6 +127,12 @@ class Application {
         } else if (collisionBoxSphereCheck(rocket.Mesh, this._target.Mesh)) {
           rocket.freeze(true);
         }
+        
+        // Calculate distance to target
+        const distToTarget = calculateDistanceToTarget(rocket, this._target);
+        if (distToTarget < rocket.DistanceToTarget) {
+          rocket.DistanceToTarget = distToTarget;
+        }
       }
     }
 
@@ -119,14 +142,8 @@ class Application {
   private reset(dt: number): void {
     this._frameCount = 0;
 
-    // Calculate the distance between the rocket and the target
-    const distances = [];
-    for (let i = 0; i < numRockets; ++i) {
-      distances.push(calculateDistanceToTarget(this._rockets[i], this._target));
-    }
-
     // Calculate the fitness of each rocket (lower the score the better!)
-    const maxDist = 200;
+    const maxDist = 40;
     const minDist = 0;
 
     for (let i = 0; i < numRockets; ++i) {
@@ -135,7 +152,7 @@ class Application {
       if (rocket.IsFrozen) {
         rocket.DNA.Fitness = rocket.ReachedTarget ? 0 : 1;
       } else {
-        rocket.DNA.Fitness = Math.min(distances[i] / (maxDist + minDist), 1.0);
+        rocket.DNA.Fitness = Math.min(rocket.DistanceToTarget / (maxDist + minDist), 1.0);
       }
     }
 
@@ -210,6 +227,7 @@ const collisionBoxCheck = (a: Mesh, b: Mesh): boolean => {
   return aBox.intersectsBox(bBox);
 };
 
+// Given two meshes, checks to see if their AABB intersects
 const collisionBoxSphereCheck = (a: Mesh, b: Mesh): boolean => {
   if (a.geometry.boundingBox == null || b.geometry.boundingSphere == null) {
     return false;
