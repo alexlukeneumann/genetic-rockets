@@ -8,7 +8,7 @@ This web application was written using:
  - Three.js
 
 ## Demo
-A demo is available at: https://alexlukeneumann.github.io/genetic-rockets/public.
+A demo is available at: <https://alexlukeneumann.github.io/genetic-rockets/public>.
 
 ## How To
 To run the repository locally, run the following command (using http-server npm packaged installed globally):
@@ -26,11 +26,11 @@ Or use the watcher to listen out for changes and automatically compile them:
 ## Rocket Model
 Each rocket is modelled using a simple force diagram:
 
-![A diagram depicting the forces acting upon the rocket.](https://github.com/alexlukeneumann/genetic-rockets/blob/main/docs/force-diagram.PNG)
+![A diagram depicting the forces acting upon the rocket.](https://raw.githubusercontent.com/alexlukeneumann/genetic-rockets/main/docs/force-diagram.PNG)
 
 The upward thrust of the rocket is depicted by the well known, simplified, rocket thrust equation:
 
-![Thrust equation acting upon the rocket.](https://github.com/alexlukeneumann/genetic-rockets/blob/main/docs/thrust-equation.PNG)
+![Thrust equation acting upon the rocket.](https://raw.githubusercontent.com/alexlukeneumann/genetic-rockets/main/docs/thrust-equation.PNG)
 
 where T is the thrust of the rocket, v is the particle exhaust velocity and dm/dt represents the mass flow rate of the rocket.
 
@@ -43,7 +43,7 @@ On the initial seed of the simulation, each rocket has its DNA randomly generate
 
 At the end of the generation lifetime, the following occurs:
 
- - Calculate the distance each rocket is to the destination target.
+ - Calculate the distance each rocket is to the destination target. (Note: This could be done per frame instead of at the end of the generation lifetime)
  - Normalize each one of these distances against a defined linear scale. This defines the 'fitness' of the rocket.
  - All rockets are sorted against their fitness values.
  - Rockets with a better fitness value are then 'mated' with the weakest rockets. For each rocket pair: the weaker rocket's DNA has a chance to take parts of the fitter rocket's DNA, where the greater the fitness difference, the higher the chance that more of the fitter rocket's DNA is merged into the weaker rocket's DNA.
