@@ -36,7 +36,6 @@ class Application {
   private _rockets: Array<Rocket> = [];
   private _target: Target = new Target(new Vector3(), new Vector3());
   private _wall: Wall = new Wall(new Vector3(), new Vector3());
-  private _lastTimestamp: number = 0;
   private _generation: number = 0;
 
   constructor() {
@@ -85,18 +84,14 @@ class Application {
     
     this._renderer.clear();
 
-    let dt = timestamp - this._lastTimestamp;
-    dt = dt / 1000; // Convert from MS to S
-
     // If runSimulation hasn't been pressed, we will take an early bail out.
     if (!this._runSimulation) {
       this._renderer.render(this._scene, this._camera);
-      this._lastTimestamp = timestamp;
       return;
     }
 
     if (++this._frameCount === lifeTime) {
-      this.reset(dt);
+      this.reset(targetFrameRate);
     }
 
     writeHTMLElementInnerText("frame", this._frameCount);
@@ -109,7 +104,7 @@ class Application {
         continue;
       }
 
-      if (rocket.step(dt)) {
+      if (rocket.step(targetFrameRate)) {
         if (collisionBoxCheck(this._wall.Mesh, rocket.Mesh)) {
           rocket.freeze(false);
         } else if (collisionBoxSphereCheck(rocket.Mesh, this._target.Mesh)) {
@@ -119,7 +114,6 @@ class Application {
     }
 
     this._renderer.render(this._scene, this._camera);
-    this._lastTimestamp = timestamp;
   }
 
   private reset(dt: number): void {
